@@ -19,11 +19,11 @@ py -m http.server 4173
 - `script.js` — мобильное меню, интерактивные маршруты, фильтры с синхронизацией URL и scroll-reveal.
 - `favicon.svg`, `og-cover.svg` — favicon и Open Graph-обложка.
 - `robots.txt`, `sitemap.xml` — базовая SEO-настройка.
-- `.github/workflows/pages.yml` — workflow публикации для резервного репозитория; короткий репозиторий использует GitHub Pages из ветки `main`.
+- `.github/workflows/pages.yml` — workflow публикации для резервного репозитория и отправки короткой версии в ветку `gh-pages`.
 
 ## Публикация
 
-Репозиторий `landing` публикуется на GitHub Pages из ветки `main`, что разрешено для чистого статического проекта. Резервный репозиторий `landing-path-20260812` публикуется workflow из `.github/workflows/pages.yml`.
+Репозиторий `landing` публикуется GitHub Actions в ветку `gh-pages`, откуда GitHub Pages отдаёт статический сайт. Резервный репозиторий `landing-path-20260812` публикуется официальным workflow из `.github/workflows/pages.yml`.
 
 - Репозиторий: <https://github.com/ya-yura/landing>.
 - Демо: <https://ya-yura.github.io/landing/>.
