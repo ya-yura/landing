@@ -180,15 +180,20 @@
     track('portfolio_card_open', { order: card.dataset.order });
   }));
 
-  document.querySelectorAll('.faq-list details').forEach((details) => {
-    const summary = details.querySelector('summary');
-    summary?.addEventListener('keydown', (event) => {
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    const button = item.querySelector('.faq-question');
+    const panel = item.querySelector('.faq-answer');
+    const toggle = () => {
+      const open = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!open));
+      panel.hidden = open;
+      if (!open) track('faq_open', { question: button.textContent.trim() });
+    };
+    button?.addEventListener('click', toggle);
+    button?.addEventListener('keydown', (event) => {
       if (event.key !== 'Enter' && event.key !== ' ') return;
       event.preventDefault();
-      details.open = !details.open;
-    });
-    details.addEventListener('toggle', () => {
-      if (details.open) track('faq_open', { question: summary?.textContent.trim() });
+      toggle();
     });
   });
 
