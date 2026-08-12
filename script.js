@@ -1,13 +1,15 @@
 (() => {
+  const counterId = 111469697;
   const emailSubject = 'Посадочная страница под услугу';
-  const emailBody = [
+  const defaultEmailBody = [
     'Компания:',
     'Ссылка на текущий сайт:',
     'Услуга или предложение:',
     'Что должен сделать посетитель:',
-    'Какой канал заявки уже используется:',
+    'Контакт для ответа:',
   ].join('\n');
-  const emailHref = `mailto:sharikov@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+  const buildMailto = (body = defaultEmailBody) => `mailto:sharikov@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(body)}`;
+  const emailHref = buildMailto();
 
   document.querySelectorAll('a[href^="mailto:sharikov@gmail.com"]').forEach((link) => {
     link.setAttribute('href', emailHref);
@@ -17,13 +19,75 @@
     const payload = { event: eventName, ...params };
     if (typeof window.gtag === 'function') window.gtag('event', eventName, params);
     if (Array.isArray(window.dataLayer)) window.dataLayer.push(payload);
-    if (typeof window.ym === 'function' && window.YM_COUNTER_ID) window.ym(window.YM_COUNTER_ID, 'reachGoal', eventName, params);
+    if (typeof window.ym === 'function') window.ym(counterId, 'reachGoal', eventName, params);
     window.dispatchEvent(new CustomEvent('landing_event', { detail: payload }));
   };
 
   document.querySelectorAll('[data-track]').forEach((element) => {
-    element.addEventListener('click', () => track(element.dataset.track));
+    element.addEventListener('click', () => {
+      const params = {};
+      if (element.dataset.trackLocation) params.location = element.dataset.trackLocation;
+      if (element.dataset.trackCta) params.cta = element.dataset.trackCta;
+      if (element.dataset.track === 'landing_cta_click' && !params.cta) params.cta = 'describe_task';
+      track(element.dataset.track, params);
+    });
   });
+
+  document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const location = link.dataset.trackLocation || (link.closest('.site-footer') ? 'footer' : 'content');
+      track('landing_mailto_click', { location });
+    });
+  });
+
+  const leadForm = document.querySelector('[data-lead-form]');
+  const formStatus = document.querySelector('[data-form-status]');
+  if (leadForm) {
+    leadForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!leadForm.checkValidity()) {
+        formStatus.textContent = 'Заполните обязательные поля, чтобы открыть письмо.';
+        leadForm.reportValidity();
+        return;
+      }
+
+      const formData = new FormData(leadForm);
+      const fields = Object.fromEntries(formData.entries());
+      const openMailtoFallback = () => {
+        const body = [
+          `Компания: ${fields.company}`,
+          `Ссылка на текущий сайт или карточку: ${fields.website || 'не указана'}`,
+          `Услуга или предложение: ${fields.offer}`,
+          `Действие посетителя: ${fields.action}`,
+          `Контакт для ответа: ${fields.contact}`,
+          `Страница: ${window.location.href}`,
+        ].join('\n');
+        track('landing_mailto_click', { location: 'form_fallback' });
+        window.location.href = buildMailto(body);
+      };
+      const endpoint = leadForm.dataset.endpoint?.trim();
+      if (endpoint) {
+        formStatus.textContent = 'Отправляем описание задачи…';
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ...fields, page: window.location.href, submittedAt: new Date().toISOString() }),
+          });
+          if (!response.ok) throw new Error(`Endpoint returned ${response.status}`);
+          track('landing_form_submit', { location: 'final' });
+          formStatus.textContent = 'Описание задачи отправлено.';
+        } catch (error) {
+          formStatus.textContent = 'Не удалось передать форму. Откройте письмо и отправьте описание через резервный канал.';
+          openMailtoFallback();
+        }
+        return;
+      }
+
+      formStatus.textContent = 'Откроется почтовый клиент с заполненным описанием.';
+      openMailtoFallback();
+    });
+  }
 
   const menuToggle = document.querySelector('[data-menu-toggle]');
   const mobileNav = document.querySelector('[data-mobile-nav]');
@@ -116,8 +180,17 @@
     const href = link?.href || '';
     const item = portfolio.find((entry) => entry.exact ? href === entry.exact : href.includes(entry.match));
     if (!item) return card;
+    const derivedSlug = (() => {
+      try {
+        const pathParts = new URL(href).pathname.split('/').filter(Boolean);
+        return (pathParts[pathParts.length - 1] || 'portfolio-home').replace(/\.html$/i, '').replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLowerCase();
+      } catch (error) {
+        return 'portfolio-project';
+      }
+    })();
     card.dataset.category = item.category;
     card.dataset.order = String(item.order);
+    card.dataset.project = item.slug || derivedSlug;
     card.dataset.extra = String(item.order > 8);
     const meta = card.querySelector('.project-meta');
     if (meta) meta.innerHTML = `<span>${item.status}</span><span>${String(item.order).padStart(2, '0')} / 18</span>`;
@@ -164,12 +237,12 @@
   };
   filterButtons.forEach((button) => button.addEventListener('click', () => {
     showAll = false;
-    track('portfolio_filter_used', { category: button.dataset.filter });
+    track('landing_portfolio_filter', { category: button.dataset.filter });
     applyFilter(button.dataset.filter);
   }));
   showAllButton?.addEventListener('click', () => {
     showAll = !showAll;
-    track('portfolio_filter_used', { category: showAll ? 'all-expanded' : 'all-collapsed' });
+    track('landing_portfolio_expand', { expanded: showAll });
     applyFilter('all');
   });
   const initialFilter = new URLSearchParams(window.location.search).get('category') || 'all';
@@ -177,7 +250,7 @@
   applyFilter(initialFilter, false);
 
   projectCards.forEach((card) => card.querySelector('.project-link')?.addEventListener('click', () => {
-    track('portfolio_card_open', { order: card.dataset.order });
+    track('landing_portfolio_open', { project: card.dataset.project || card.dataset.order });
   }));
 
   document.querySelectorAll('.faq-item').forEach((item) => {

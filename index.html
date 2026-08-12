@@ -21,6 +21,21 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
     <title>Посадочная под заявку — страница под услугу</title>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+      window.YM_COUNTER_ID = 111469697;
+      (function (m, e, t, r, i, k, a) {
+        m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j += 1) {
+          if (document.scripts[j].src === r) return;
+        }
+        k = e.createElement(t); a = e.getElementsByTagName(t)[0]; k.async = 1; k.src = r; a.parentNode.insertBefore(k, a);
+      })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=111469697', 'ym');
+      ym(111469697, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: 'dataLayer', referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/111469697" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
   </head>
   <body>
     <a class="skip-link" href="#main">К содержанию</a>
@@ -36,8 +51,8 @@
           <a href="#examples">Примеры</a>
           <a href="#faq">FAQ</a>
         </nav>
-        <a class="header-cta" data-track="cta_email_click" href="mailto:sharikov@gmail.com?subject=Посадочная%20страница%20под%20услугу">
-          Показать задачу <span aria-hidden="true">↗</span>
+        <a class="header-cta" data-track="landing_cta_click" data-track-location="header" href="mailto:sharikov@gmail.com?subject=Посадочная%20страница%20под%20услугу">
+          Описать задачу <span aria-hidden="true">↗</span>
         </a>
         <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" data-menu-toggle>
           <span></span><span></span>
@@ -47,7 +62,7 @@
         <a href="#solution">Что создаётся <span aria-hidden="true">↘</span></a>
         <a href="#examples">Примеры <span aria-hidden="true">↘</span></a>
         <a href="#faq">FAQ <span aria-hidden="true">↘</span></a>
-        <a class="mobile-nav-cta" data-track="cta_email_click" href="mailto:sharikov@gmail.com?subject=Посадочная%20страница%20под%20услугу">Показать задачу <span aria-hidden="true">↗</span></a>
+        <a class="mobile-nav-cta" data-track="landing_cta_click" data-track-location="header" href="mailto:sharikov@gmail.com?subject=Посадочная%20страница%20под%20услугу">Описать задачу <span aria-hidden="true">↗</span></a>
       </nav>
     </header>
 
@@ -57,11 +72,12 @@
           <div class="hero-copy reveal">
             <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> для локального бизнеса и рекламного трафика</p>
             <h1 id="hero-title">Одна услуга. Одна страница. <span>Один понятный следующий шаг.</span></h1>
+            <p class="hero-price-line">Фиксированный запуск — 55 000 ₽ на домене клиента</p>
             <p class="hero-lead">Соберём отдельную посадочную под рекламный запрос, сезонное предложение или услугу — с фиксированным запуском 55 000 ₽ на домене бизнеса.</p>
             <p class="hero-detail">Посетитель сразу видит подходящий вариант, условия и действие: заявку, запись, расчёт или бронь.</p>
             <div class="hero-proof" aria-label="Что меняется для посетителя"><span>для конкретной услуги</span><span>убирает поиск по меню</span><span>один следующий шаг</span></div>
             <div class="hero-actions">
-              <a class="button button-primary" data-track="hero_cta_click" href="#fit">Показать задачу <span aria-hidden="true">↓</span></a>
+              <a class="button button-primary" data-track="landing_cta_click" data-track-location="hero" href="#contact">Описать задачу <span aria-hidden="true">↓</span></a>
               <a class="text-link" data-track="examples_open" href="#examples">Открыть примеры <span aria-hidden="true">↓</span></a>
             </div>
             <div class="hero-price" aria-label="Фиксированная цена запуска">
@@ -75,7 +91,7 @@
               <span id="route-title">маршрут заявки</span>
               <span class="route-index">01 / 04</span>
             </div>
-            <p class="route-question">Что происходит<br /><em>после клика по рекламе?</em></p>
+            <p class="route-question">Что клиент должен<br /><em>понять после перехода?</em></p>
             <ol class="route-flow" data-route-flow>
               <li><button type="button" class="route-step is-active" data-flow-step="0" aria-pressed="true"><span class="route-number">01</span><span>Запрос клиента</span><span class="route-arrow" aria-hidden="true">→</span></button></li>
               <li><button type="button" class="route-step" data-flow-step="1" aria-pressed="false"><span class="route-number">02</span><span>Подходящее предложение</span><span class="route-arrow" aria-hidden="true">→</span></button></li>
@@ -169,13 +185,18 @@
             <h2 id="price-title">55 000 ₽ за <span>один понятный маршрут.</span></h2>
             <p>55 000 ₽ — фиксированный запуск одной посадочной страницы на домене клиента.</p>
             <p>Цена не меняется из-за ниши, размера бизнеса или внешнего впечатления о компании. В стоимость входит один согласованный маршрут клиента. Любая дополнительная работа сначала описывается отдельно.</p>
-            <a class="button button-lime" data-track="cta_email_click" href="mailto:sharikov@gmail.com?subject=Посадочная%20страница%20под%20услугу">Показать задачу <span aria-hidden="true">↗</span></a>
+            <a class="button button-lime" data-track="landing_cta_click" data-track-location="final" href="mailto:sharikov@gmail.com?subject=Посадочная%20страница%20под%20услугу">Описать задачу <span aria-hidden="true">↗</span></a>
           </div>
           <div class="price-card reveal reveal-delay">
             <div class="price-card-top"><span>запуск / 01 маршрут</span><span class="price-card-mark" aria-hidden="true">P/</span></div>
             <div class="price-amount">55 000 <small>₽</small></div>
             <p>на домене клиента</p>
-            <table class="price-table"><thead><tr><th>Входит</th><th>Не входит автоматически</th></tr></thead><tbody><tr><td>Один маршрут заявки</td><td>Реклама</td></tr><tr><td>Структура страницы</td><td>Ведение соцсетей</td></tr><tr><td>Тексты на основе материалов бизнеса</td><td>Фото- и видеосъёмка</td></tr><tr><td>Дизайн и мобильная версия</td><td>CRM и 1С</td></tr><tr><td>Подключение домена</td><td>Сложные интеграции</td></tr><tr><td>Публикация</td><td>Большой сайт</td></tr></tbody></table>
+            <table class="price-table"><thead><tr><th>Входит в 55 000 ₽</th><th>Не входит автоматически</th></tr></thead><tbody><tr><td>Один маршрут заявки</td><td>Реклама и её ведение</td></tr><tr><td>Структура страницы</td><td>Ведение соцсетей</td></tr><tr><td>Тексты на основе материалов бизнеса</td><td>Фото- и видеосъёмка</td></tr><tr><td>Дизайн и мобильная версия</td><td>CRM и 1С</td></tr><tr><td>Подключение домена</td><td>Сложные интеграции</td></tr><tr><td>Публикация</td><td>Большой многостраничный сайт</td></tr></tbody></table>
+            <div class="price-notes">
+              <div><h3>Материалы клиента</h3><p>Описание услуги, условия, контакты, фотографии и другие уже существующие материалы бизнеса.</p></div>
+              <div><h3>Завершённый запуск</h3><p>Согласованная посадочная опубликована на домене клиента и ведёт к выбранному действию.</p></div>
+              <div><h3>Дополнительные работы</h3><p>Всё за пределами одной посадочной или перечисленных условий сначала описывается и согласуется отдельно.</p></div>
+            </div>
           </div>
         </div>
       </section>
@@ -258,8 +279,18 @@
 
       <section class="final-cta section" id="contact" aria-labelledby="contact-title">
         <div class="container final-cta-inner reveal">
-          <div><p class="eyebrow">следующий шаг</p><h2 id="contact-title">Есть услуга, которую нужно сделать понятной <span>с первого экрана?</span></h2><p>Пришлите ссылку на текущую страницу или опишите предложение. Соберём один маршрут клиента с понятными условиями и действием.</p></div>
-          <div class="final-action"><a class="button button-dark" data-track="cta_email_click" href="mailto:sharikov@gmail.com?subject=Посадочная%20страница%20под%20услугу">Отправить описание задачи <span aria-hidden="true">↗</span></a><p><strong>55 000 ₽</strong><br />фиксированный запуск на домене клиента</p></div>
+          <div class="final-copy"><p class="eyebrow">следующий шаг</p><h2 id="contact-title">Есть услуга, которую нужно сделать понятной <span>с первого экрана?</span></h2><p>Опишите задачу в короткой форме. Если endpoint ещё не настроен, данные откроются в письме — без имитации отправки заявки.</p><p class="final-price"><strong>55 000 ₽</strong><br />фиксированный запуск на домене клиента</p></div>
+          <form class="lead-form" data-lead-form novalidate>
+            <h3>Описать задачу</h3>
+            <p class="form-note">Поля помогут сразу собрать контекст для ответа.</p>
+            <label>Компания<input name="company" type="text" autocomplete="organization" required /></label>
+            <label>Ссылка на текущий сайт или карточку<input name="website" type="url" inputmode="url" autocomplete="url" placeholder="https://" /></label>
+            <label>Услуга или предложение<input name="offer" type="text" required /></label>
+            <label>Какое действие должен совершить посетитель?<input name="action" type="text" required /></label>
+            <label>Email или другой контакт<input name="contact" type="text" autocomplete="email" required /></label>
+            <button class="button button-dark" type="submit">Открыть письмо с описанием <span aria-hidden="true">↗</span></button>
+            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+          </form>
         </div>
       </section>
     </main>
@@ -267,7 +298,7 @@
     <footer class="site-footer">
       <div class="container footer-inner"><a class="brand" href="#top" aria-label="Посадочная под заявку — в начало"><span class="brand-mark" aria-hidden="true">P/</span><span class="brand-name">ПОСАДОЧНАЯ<br />ПОД ЗАЯВКУ</span></a><p>Одна страница под один понятный путь клиента.</p><a href="mailto:sharikov@gmail.com">sharikov@gmail.com <span aria-hidden="true">↗</span></a><span class="footer-copy">© 2026</span></div>
     </footer>
-    <a class="sticky-cta" data-track="cta_email_click" href="mailto:sharikov@gmail.com?subject=Посадочная%20страница%20под%20услугу">Показать задачу <span aria-hidden="true">↗</span></a>
+    <a class="sticky-cta" data-track="landing_cta_click" data-track-location="final" href="mailto:sharikov@gmail.com?subject=Посадочная%20страница%20под%20услугу">Описать задачу <span aria-hidden="true">↗</span></a>
     <script src="script.js" defer></script>
   </body>
 </html>
