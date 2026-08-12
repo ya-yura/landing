@@ -180,9 +180,17 @@
     track('portfolio_card_open', { order: card.dataset.order });
   }));
 
-  document.querySelectorAll('.faq-list details').forEach((details) => details.addEventListener('toggle', () => {
-    if (details.open) track('faq_open', { question: details.querySelector('summary')?.textContent.trim() });
-  }));
+  document.querySelectorAll('.faq-list details').forEach((details) => {
+    const summary = details.querySelector('summary');
+    summary?.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      details.open = !details.open;
+    });
+    details.addEventListener('toggle', () => {
+      if (details.open) track('faq_open', { question: summary?.textContent.trim() });
+    });
+  });
 
   const scrollMilestones = new Set();
   const checkScrollDepth = () => {
