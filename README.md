@@ -25,7 +25,7 @@ py -m http.server 4173
 
 После создания GitHub-репозитория `landing-path-20260812` workflow из `.github/workflows/pages.yml` публикует сайт на GitHub Pages.
 
-- Репозиторий: будет добавлен после публикации.
+- Репозиторий: <https://github.com/ya-yura/landing-path-20260812>.
 - Демо: <https://ya-yura.github.io/landing-path-20260812/>.
 
 ## Проверенные материалы
