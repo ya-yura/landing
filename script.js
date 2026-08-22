@@ -154,24 +154,28 @@
   }));
 
   const portfolio = [
-    { match: 'pinkme-krasnodar', order: 1, category: 'landing', status: 'Публичная посадочная', task: 'Задача: отдельная точка входа в фитнес и растяжку. Путь: направление → запись.' },
-    { match: 'masterfix-krasnodar', order: 2, category: 'landing', status: 'Публичная посадочная', task: 'Задача: объяснить сервис и довести до записи. Путь: услуга → условия → обращение.' },
-    { match: 'smart-climat-krasnodar', order: 3, category: 'landing', status: 'Публичная посадочная', task: 'Задача: собрать подбор и монтаж кондиционера. Путь: запрос → решение → расчёт.' },
-    { match: 'rem-split-krasnodar', order: 4, category: 'landing', status: 'Публичная посадочная', task: 'Задача: привести к ремонту и обслуживанию. Путь: проблема → услуга → заявка.' },
-    { match: 'servisavto-krasnodar', order: 5, category: 'landing', status: 'Публичная посадочная', task: 'Задача: сделать автосервис понятным с первого экрана. Путь: услуга → запись.' },
-    { match: 'orange-master-krasnodar', order: 6, category: 'landing', status: 'Публичная посадочная', task: 'Задача: отдельная точка входа в автотехцентр. Путь: запрос → консультация.' },
-    { match: 'avtoklimat23-krasnodar', order: 7, category: 'landing', status: 'Публичная посадочная', task: 'Задача: объяснить ремонт и заправку автокондиционера. Путь: услуга → стоимость.' },
-    { match: 'dinamika-autocenter', order: 8, category: 'landing', status: 'Публичная посадочная', task: 'Задача: навигация по услугам автотехцентра. Путь: услуга → запись.' },
-    { match: 'sk-service-krasnodar', order: 9, category: 'landing', status: 'Публичная посадочная', task: 'Задача: собрать ремонт и диагностику в одном маршруте. Путь: проблема → сервис.' },
-    { match: 'logos-krasnodar-landing-20260811', order: 10, category: 'landing', status: 'Публичная посадочная', task: 'Задача: подобрать программу центра. Путь: запрос → направление → обращение.' },
-    { match: 'evrika-krasnodar-20260811', order: 11, category: 'landing', status: 'Публичная посадочная', task: 'Задача: помочь выбрать образовательную программу. Путь: запрос → формат → заявка.' },
-    { exact: 'https://ya-yura.github.io/', order: 12, category: 'landing', status: 'Публичный пример', task: 'Задача: архив открытых страниц и интерфейсов. Путь: интерес → просмотр примера.' },
-    { match: 'kubtel.2026', order: 13, category: 'landing', status: 'Демонстрационный проект', task: 'Задача: развести домашний интернет, тарифы и бизнес. Путь: запрос → подходящий маршрут.' },
-    { match: 'case-sklad-15', order: 14, category: 'service', status: 'Кейс сервисного сценария', task: 'Задача: показать маршрут сложной складской операции. Путь: приёмка → условия → действие.' },
-    { match: 'case-kubtel', order: 15, category: 'service', status: 'Кейс сервисного сценария', task: 'Задача: объяснить статус при аварии. Путь: проблема → статус → следующий шаг.' },
-    { match: 'test-zinit', order: 16, category: 'interface', status: 'Рабочий интерфейс', task: 'Задача: показать рабочую панель закупщика. Путь: данные → решение → действие.' },
-    { match: 'hotel-app', order: 17, category: 'interface', status: 'Рабочий интерфейс', task: 'Задача: управлять бронированиями и номерами. Путь: статус → номер → операция.' },
-    { match: 'WightApp', order: 18, category: 'interface', status: 'Рабочий интерфейс', task: 'Задача: сравнить цену товаров. Путь: товар → единица → сравнение.' },
+    { match: 'tvoi-skulptor-krasnodar-20260822', order: 1, category: 'landing', status: 'Свежая посадочная', task: 'Задача: подобрать массаж или уход. Путь: состояние → формат → запрос в WhatsApp.' },
+    { match: 'dusha-selector-krasnodar', order: 2, category: 'landing', status: 'Свежая посадочная', task: 'Задача: интерактивно подобрать массаж и SPA. Путь: состояние → программа → обращение.' },
+    { match: 'smart-childhood-krasnodar-landing-20260820', order: 3, category: 'landing', status: 'Свежая посадочная', task: 'Задача: выбрать развитие ребёнка. Путь: возраст → задача → направление.' },
+    { match: 'postoyalyy-dvor-nebug', order: 4, category: 'landing', status: 'Свежая посадочная', task: 'Задача: подобрать номер в Небуге. Путь: даты → гости → вариант размещения.' },
+    { match: 'kubtel.2026', order: 5, category: 'landing', status: 'Публичный проект', task: 'Задача: развести домашний интернет, тарифы и бизнес. Путь: запрос → подходящий маршрут.' },
+    { match: 'case-sklad-15', order: 6, category: 'service', status: 'Кейс сервисного сценария', task: 'Задача: показать маршрут сложной складской операции. Путь: приёмка → условия → действие.' },
+    { match: 'case-kubtel', order: 7, category: 'service', status: 'Кейс сервисного сценария', task: 'Задача: объяснить статус при аварии. Путь: проблема → статус → следующий шаг.' },
+    { match: 'test-zinit', order: 8, category: 'interface', status: 'Рабочий интерфейс', task: 'Задача: показать рабочую панель закупщика. Путь: данные → решение → действие.' },
+    { match: 'hotel-app', order: 9, category: 'interface', status: 'Рабочий интерфейс', task: 'Задача: управлять бронированиями и номерами. Путь: статус → номер → операция.' },
+    { match: 'WightApp', order: 10, category: 'interface', status: 'Рабочий интерфейс', task: 'Задача: сравнить цену товаров. Путь: товар → единица → сравнение.' },
+    { exact: 'https://ya-yura.github.io/', order: 11, category: 'landing', status: 'Публичный пример', task: 'Задача: архив открытых страниц и интерфейсов. Путь: интерес → просмотр примера.' },
+    { match: 'pinkme-krasnodar', order: 12, category: 'landing', status: 'Публичная посадочная', task: 'Задача: отдельная точка входа в фитнес и растяжку. Путь: направление → запись.' },
+    { match: 'masterfix-krasnodar', order: 13, category: 'landing', status: 'Публичная посадочная', task: 'Задача: объяснить сервис и довести до записи. Путь: услуга → условия → обращение.' },
+    { match: 'smart-climat-krasnodar', order: 14, category: 'landing', status: 'Публичная посадочная', task: 'Задача: собрать подбор и монтаж кондиционера. Путь: запрос → решение → расчёт.' },
+    { match: 'rem-split-krasnodar', order: 15, category: 'landing', status: 'Публичная посадочная', task: 'Задача: привести к ремонту и обслуживанию. Путь: проблема → услуга → заявка.' },
+    { match: 'servisavto-krasnodar', order: 16, category: 'landing', status: 'Публичная посадочная', task: 'Задача: сделать автосервис понятным с первого экрана. Путь: услуга → запись.' },
+    { match: 'orange-master-krasnodar', order: 17, category: 'landing', status: 'Публичная посадочная', task: 'Задача: отдельная точка входа в автотехцентр. Путь: запрос → консультация.' },
+    { match: 'avtoklimat23-krasnodar', order: 18, category: 'landing', status: 'Публичная посадочная', task: 'Задача: объяснить ремонт и заправку автокондиционера. Путь: услуга → стоимость.' },
+    { match: 'dinamika-autocenter', order: 19, category: 'landing', status: 'Публичная посадочная', task: 'Задача: навигация по услугам автотехцентра. Путь: услуга → запись.' },
+    { match: 'sk-service-krasnodar', order: 20, category: 'landing', status: 'Публичная посадочная', task: 'Задача: собрать ремонт и диагностику в одном маршруте. Путь: проблема → сервис.' },
+    { match: 'logos-krasnodar-landing-20260811', order: 21, category: 'landing', status: 'Публичная посадочная', task: 'Задача: подобрать программу центра. Путь: запрос → направление → обращение.' },
+    { match: 'evrika-krasnodar-20260811', order: 22, category: 'landing', status: 'Публичная посадочная', task: 'Задача: помочь выбрать образовательную программу. Путь: запрос → формат → заявка.' },
   ];
   const projectGrid = document.querySelector('[data-project-grid]');
   let projectCards = [...document.querySelectorAll('[data-category]')];
@@ -193,7 +197,7 @@
     card.dataset.project = item.slug || derivedSlug;
     card.dataset.extra = String(item.order > 8);
     const meta = card.querySelector('.project-meta');
-    if (meta) meta.innerHTML = `<span>${item.status}</span><span>${String(item.order).padStart(2, '0')} / 18</span>`;
+    if (meta) meta.innerHTML = `<span>${item.status}</span><span>${String(item.order).padStart(2, '0')} / ${portfolio.length}</span>`;
     const description = card.querySelector('p');
     if (description) description.textContent = item.task;
     if (link) link.innerHTML = 'Открыть пример <span aria-hidden="true">↗</span>';
